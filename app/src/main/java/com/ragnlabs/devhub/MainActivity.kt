@@ -4,8 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -39,15 +38,25 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ProfileScreen(name: String, githubUser: String, bioContent: String) {
 
+
     Column {
         Image(
             painter = painterResource(id = R.drawable.ic_github_profile_image),
             contentDescription = "just an image description"
         )
-        Text(text = name)
-        Text(text = githubUser)
-        Text(text = bioContent)
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+            Text(text = name)
+
+        }
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+            Text(text = githubUser)
+        }
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+            Text(text = bioContent)
+        }
+
     }
+
 }
 
 
